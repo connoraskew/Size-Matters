@@ -71,18 +71,18 @@ public class ChaserController : MonoBehaviour
 
         shortestRay = 100f;
 
-        maxDistance = 1f;
+        maxDistance = chaserGFX.transform.localScale.x * 1.5f;
 
-        Vector3 topRightOffset = chaserGFX.transform.position + new Vector3(chaserGFX.transform.localScale.x * 0.5f, chaserGFX.transform.localScale.y * 0.5f, 0f);
-        Vector3 toprightSpacing = new Vector3(topRightOffset.x, topRightOffset.y + excessSpace, topRightOffset.z);
-        RaycastHit2D topRight = Physics2D.Raycast(toprightSpacing, transform.right, maxDistance, obstacle);
-        Debug.DrawRay(toprightSpacing, transform.right * topRight.distance, Color.yellow);
+        print(maxDistance);
 
-        Vector3 topLeftOffset = chaserGFX.transform.position + new Vector3(chaserGFX.transform.localScale.x * -0.5f, chaserGFX.transform.localScale.y * 0.5f, 0f);
-        Vector3 topLeftSpacing = new Vector3(topLeftOffset.x - excessSpace, topLeftOffset.y, topLeftOffset.z);
-        RaycastHit2D topLeft = Physics2D.Raycast(topLeftSpacing, transform.up, maxDistance, obstacle);
-        Debug.DrawRay(topLeftSpacing, transform.up * topLeft.distance, Color.yellow);
+        Vector3 raycastOffset = chaserGFX.transform.position + new Vector3(chaserGFX.transform.localScale.x * -0.5f, chaserGFX.transform.localScale.y * 0.5f, 0f);
+        Vector3 RaycastSpacing = new Vector3(raycastOffset.x - excessSpace, raycastOffset.y + excessSpace, raycastOffset.z);
 
+        RaycastHit2D topLeft = Physics2D.Raycast(RaycastSpacing, transform.up, maxDistance, obstacle);
+        Debug.DrawRay(RaycastSpacing, transform.up * topLeft.distance, Color.yellow);
+
+        RaycastHit2D topRight = Physics2D.Raycast(RaycastSpacing, transform.right, maxDistance, obstacle);
+        Debug.DrawRay(RaycastSpacing, transform.right * topRight.distance, Color.yellow);
 
         if (topRight.distance != 0)
         {
@@ -100,11 +100,15 @@ public class ChaserController : MonoBehaviour
         }
         else
         {
-            if(hasDetectedUp)
+            if(hasDetectedUp && !hasDetectedRight)
             {
                 HasPassed = true;
+                hasDetectedRight = false;
+                hasDetectedUp = false;
             }
         }
+
+
 
 
 

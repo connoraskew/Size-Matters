@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8146801023744003072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8146801023744003326}
+  - component: {fileID: 8146801023744003073}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8146801023744003326
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146801023744003072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8146801023744003073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8146801023744003072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae95c7dd526b3664dbdb60dc6ad0a937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  devMode: 1
+  player: {fileID: 0}
+  levels:
+  - {fileID: 8988261064304614799, guid: 0f9349b545092494190d8a801a61d1ce, type: 3}
+  - {fileID: 7069965256202505624, guid: eb068f4e547b1cc44a64f0a84154c4e2, type: 3}
+  - {fileID: 5433721173822534192, guid: a1ef5297c70076248ac2a58c3fd00747, type: 3}
+  - {fileID: 9092603532148428577, guid: 0022786cf34ded04eb9260ad8da0876e, type: 3}
+  - {fileID: 8042886967129604280, guid: f17f754bd7229b3489d576e5588a39da, type: 3}
+  - {fileID: 6752938099355503678, guid: f7fbff41bb18da84da74e05314a1a38e, type: 3}
+  - {fileID: 2405003417731158396, guid: 8b538c9c4157f6340b82e6e6abcf0e13, type: 3}
+  - {fileID: 5358230149886621328, guid: a003dd64e2901de4c99dcadaee94f154, type: 3}
+  iCurrentLevel: 0
+  delay: 0.3
+  isEnding: 0

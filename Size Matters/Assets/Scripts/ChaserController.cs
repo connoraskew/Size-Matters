@@ -71,9 +71,7 @@ public class ChaserController : MonoBehaviour
 
         shortestRay = 100f;
 
-        maxDistance = chaserGFX.transform.localScale.x * 1.5f;
-
-        print(maxDistance);
+        maxDistance = chaserGFX.transform.localScale.x * 2f;
 
         Vector3 raycastOffset = chaserGFX.transform.position + new Vector3(chaserGFX.transform.localScale.x * -0.5f, chaserGFX.transform.localScale.y * 0.5f, 0f);
         Vector3 RaycastSpacing = new Vector3(raycastOffset.x - excessSpace, raycastOffset.y + excessSpace, raycastOffset.z);

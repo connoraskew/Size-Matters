@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
 
+    [SerializeField]
+    private GameObject Enemy;
+
     public GameObject[] levels;
 
     private GameObject currentLevel;
@@ -28,6 +31,7 @@ public class LevelManager : MonoBehaviour
 
         if (devMode)
         {
+            gameManager.currentLevel = iCurrentLevel;
             gameManager.SaveData();
         }
 
@@ -38,12 +42,13 @@ public class LevelManager : MonoBehaviour
         SetLevel();
 
         isEnding = false;
-
     }
 
     void SetLevel()
     {
-        if (iCurrentLevel -1 == levels.Length)
+        print(iCurrentLevel + " | " + gameManager.currentLevel);
+
+        if (iCurrentLevel >= levels.Length)
         {
             iCurrentLevel = 0;
         }
@@ -52,20 +57,27 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(currentLevel);
         }
+
         // create the level
         currentLevel = Instantiate(levels[iCurrentLevel], transform.position, Quaternion.identity);
         // set the players position to be the same as the first gameobject child of the level parent
         // always have "startpos" object as the first child
-        ResetPlayer();
+        ResetEntities();
     }
 
-    void ResetPlayer()
+    void ResetEntities()
     {
         Transform startPos = currentLevel.transform.GetChild(0).transform;
+        Transform EnemystartPos = currentLevel.transform.GetChild(1).transform;
+
         player.transform.position = startPos.position;
+        Enemy.transform.position = EnemystartPos.position;
 
         player.transform.localScale = new Vector3(1, 1, 1);
+        Enemy.transform.localScale = new Vector3(1, 1, 1);
+
         player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Enemy.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     void FadeIn()
@@ -104,11 +116,7 @@ public class LevelManager : MonoBehaviour
         gameManager.currentLevel++;
         gameManager.SaveData();
         SetLevel();
-        ResetPlayer();
-
-        player.transform.localScale = new Vector3(1, 1, 1);
-
-        player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        ResetEntities();
 
         isEnding = false;
         Invoke("FadeIn", delay);
@@ -128,7 +136,7 @@ public class LevelManager : MonoBehaviour
 
     public void Reset()
     {
-        ResetPlayer();
+        ResetEntities();
         isEnding = false;
         Invoke("FadeIn", delay);
     }

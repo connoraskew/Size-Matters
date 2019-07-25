@@ -45,15 +45,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devMode: 1
   player: {fileID: 0}
+  Enemy: {fileID: 0}
   levels:
   - {fileID: 8988261064304614799, guid: 0f9349b545092494190d8a801a61d1ce, type: 3}
   - {fileID: 7069965256202505624, guid: eb068f4e547b1cc44a64f0a84154c4e2, type: 3}
   - {fileID: 5433721173822534192, guid: a1ef5297c70076248ac2a58c3fd00747, type: 3}
   - {fileID: 9092603532148428577, guid: 0022786cf34ded04eb9260ad8da0876e, type: 3}
-  - {fileID: 8042886967129604280, guid: f17f754bd7229b3489d576e5588a39da, type: 3}
-  - {fileID: 6752938099355503678, guid: f7fbff41bb18da84da74e05314a1a38e, type: 3}
-  - {fileID: 2405003417731158396, guid: 8b538c9c4157f6340b82e6e6abcf0e13, type: 3}
-  - {fileID: 5358230149886621328, guid: a003dd64e2901de4c99dcadaee94f154, type: 3}
+  - {fileID: 8376523169310069623, guid: f17f754bd7229b3489d576e5588a39da, type: 3}
+  - {fileID: 7659835413057703371, guid: f7fbff41bb18da84da74e05314a1a38e, type: 3}
   iCurrentLevel: 0
   delay: 0.3
   isEnding: 0

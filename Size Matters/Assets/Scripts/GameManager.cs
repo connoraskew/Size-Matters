@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
         GameData data = SaveSystem.LoadData();
 
         SaveSystem.SaveData(this);
-
     }
     
     public void LoadData()
